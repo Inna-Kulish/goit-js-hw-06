@@ -9,16 +9,16 @@ const input = document.querySelector('input')
 const createBtn = document.querySelector('button[data-create]')
 const destroyBtn = document.querySelector('button[data-destroy]')
 
-createBtn.addEventListener('click', () => {
+createBtn.addEventListener('click', onCreateBtnClick)
+destroyBtn.addEventListener('click', onDestoyBtnClick)
+
+function onCreateBtnClick() {
   const amount = Number(input.value)
  createBoxes(amount)
-})
+}
 
-destroyBtn.addEventListener('click', destoyBoxes)
-
-function destoyBoxes () {
-  boxesContainer.innerHTML = ''
-  input.value = ''
+function onDestoyBtnClick() {
+  destoyBoxes()
 }
 
 function createBoxes(amount) {
@@ -38,4 +38,7 @@ function createBoxes(amount) {
   boxesContainer.append(...boxes)
 }
 
-
+function destoyBoxes () {
+  boxesContainer.innerHTML = ''
+  input.value = ''
+}
